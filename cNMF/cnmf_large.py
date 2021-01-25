@@ -876,11 +876,11 @@ def prepare(cnmf_obj, counts, components, densify=False, tpm=None, genes_file=No
             norm_counts.X = norm_counts.X.astype(np.float64)
 
         cnmf_obj.save_norm_counts(norm_counts)
+        del counts, norm_counts, tpm
 
     (replicate_params, run_params) = cnmf_obj.get_nmf_iter_params(ks=components, n_iter=n_iter,
                                                                   random_state_seed=seed, beta_loss=beta_loss)
     cnmf_obj.save_nmf_iter_params(replicate_params, run_params)
-    del counts, norm_counts, tpm
 
 
 def factorize(cnmf_obj, total_workers=1):

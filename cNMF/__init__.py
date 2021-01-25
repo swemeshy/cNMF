@@ -1,3 +1,4 @@
+from . import cnmf_large
 from .cnmf import (
     initialize,
     prepare,

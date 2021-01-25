@@ -735,6 +735,8 @@ class cNMF():
             if close_clustergram_fig:
                 plt.close(fig)
 
+        del norm_counts, merged_spectra, local_density, tpm
+
     def k_selection_plot(self, close_fig=True):
         '''
         Borrowed from Alexandrov Et Al. 2013 Deciphering Mutational Signatures
@@ -878,6 +880,7 @@ def prepare(cnmf_obj, counts, components, densify=False, tpm=None, genes_file=No
     (replicate_params, run_params) = cnmf_obj.get_nmf_iter_params(ks=components, n_iter=n_iter,
                                                                   random_state_seed=seed, beta_loss=beta_loss)
     cnmf_obj.save_nmf_iter_params(replicate_params, run_params)
+    del counts, norm_counts, tpm
 
 
 def factorize(cnmf_obj, total_workers=1):

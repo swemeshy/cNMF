@@ -8,4 +8,5 @@ setuptools.setup(name='cNMF',
                  author_email='',
                  license='',
                  packages=setuptools.find_packages(),
+                 install_requires=setuptools.find_packages(),
                  zip_safe=True)
